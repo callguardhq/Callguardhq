@@ -1,4 +1,4 @@
-# CallGuard v5 Enterprise — Mobile Security Platform
+# CallGuard Enterprise — Mobile Security Platform
 
 > Phone security built for high-risk environments. Fake call escape + intruder detection with forensic evidence.
 
