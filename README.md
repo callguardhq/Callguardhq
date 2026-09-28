@@ -1,16 +1,17 @@
-## Hi there 👋
+### 🛡️ CallGuard — Enterprise Security
 
-<!--
-**callguardhq/Callguardhq** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+Fake call escape, intruder photo + GPS evidence, remote lock/wipe.
 
-Here are some ideas to get you started:
+**Stack:** Next.js 14 • Supabase • Resend • PostHog • OneSignal • Tailwind
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+**Live:** callguard.app (coming)
+
+**Products:**
+- CallGuard Fake Call — Exit any situation
+- CallGuard Intruder Alert — Photo + Location on wrong PIN
+- CallGuard Remote Vault
+
+📍 Accra, GH — Building security tools that actually work offline.
+
+Contact: callguardhq@gmail.com
+
