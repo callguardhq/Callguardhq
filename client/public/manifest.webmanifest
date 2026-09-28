@@ -1,0 +1,20 @@
+{
+  "name": "CallGuard Enterprise",
+  "short_name": "CallGuard",
+  "description": "Your phone’s bodyguard. Built for Ghana.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0a0a0a",
+  "lang": "en-GH",
+  "icons": [
+    {
+      "src": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663986606725/ksydsCrXoWPmQOVu.webp",
+      "sizes": "1600x1600",
+      "type": "image/webp",
+      "purpose": "any"
+    }
+  ]
+}
