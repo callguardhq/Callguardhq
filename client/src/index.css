@@ -134,7 +134,7 @@ img { display: block; max-width: 100%; }
 .visual-index { justify-content: flex-end; padding-right: 16px; margin-bottom: 11px; font-size: 8px; color: #797775; }
 .hero-image-frame { border: 1px solid #383534; padding: 8px; background: #111; position: relative; box-shadow: 18px 22px 70px rgba(0,0,0,.52); }
 .hero-image-frame::before { content: ""; position: absolute; top: 23px; left: -9px; height: 46px; width: 2px; background: #ce1126; z-index: 2; }
-.hero-image-frame img { width: 100%; aspect-ratio: 1.5; object-fit: cover; object-position: 72% center; filter: saturate(.84); }
+.hero-image-frame img { width: 100%; aspect-ratio: 1.5; object-fit: contain; object-position: center; background: #050505; }
 .hero-image-caption { position: absolute; bottom: 8px; left: 8px; right: 8px; min-height: 37px; padding: 0 12px; display: flex; align-items: center; gap: 8px; background: rgba(9,9,9,.79); backdrop-filter: blur(12px); color: #d2cfcb; font-size: 8px; font-weight: 700; letter-spacing: .11em; }
 .live-mark { width: 7px; height: 7px; border: 1px solid #ce1126; border-radius: 50%; display: grid; place-items: center; }
 .live-mark span { width: 3px; height: 3px; background: #ce1126; border-radius: 50%; }
@@ -186,14 +186,18 @@ img { display: block; max-width: 100%; }
 .text-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 13px; color: #f2efeb; font-size: 11px; font-weight: 700; text-decoration: none; border-bottom: 1px solid #ce1126; padding-bottom: 5px; }
 .text-link svg { color: #ce1126; transition: transform .15s ease-out; }
 .text-link:hover svg { transform: translateX(3px); }
-.product-detail-frame { width: min(100%, 285px); height: 218px; overflow: hidden; border: 1px solid #343434; margin-top: 53px; padding: 6px; background: #111; }
-.product-detail-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; }
 .mockup-panel { border: 1px solid #343434; padding: 12px; background: #101010; box-shadow: 15px 19px 50px rgba(0,0,0,.25); }
 .mockup-topline, .mockup-footer { display: flex; justify-content: space-between; color: #777; font-size: 8px; font-weight: 700; letter-spacing: .11em; }
-.mockup-image { width: 100%; margin-block: 13px; border: 1px solid #252525; }
+.screen-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-block: 13px; }
+.screen-card { min-width: 0; margin: 0; padding: 8px; border: 1px solid #292929; background: #121212; }
+.screen-art { min-height: 232px; display: grid; place-items: center; overflow: hidden; border: 1px solid #242424; background: #070707; }
+.screen-art img { width: auto; height: 218px; max-width: 100%; object-fit: contain; }
+.screen-card figcaption { display: flex; align-items: center; gap: 7px; min-height: 30px; color: #c7c3bf; font-size: 9px; font-weight: 600; line-height: 1.35; }
+.screen-card figcaption span { color: #ce1126; font-family: "Manrope", sans-serif; font-size: 8px; font-weight: 800; }
+.screen-disclaimer { margin: 4px 0 13px; color: #817d79; font-size: 9px; line-height: 1.6; }
 .mockup-footer { color: #615e5b; }
 
-.ghana-section { min-height: 378px; background-position: center, center; background-size: cover; border-block: 1px solid #292929; }
+.ghana-section { min-height: 378px; background: #0a0a0a; border-block: 1px solid #292929; }
 .ghana-inner { min-height: 378px; position: relative; padding-block: 47px; }
 .ghana-content { margin: 28px 0 0 43px; max-width: 500px; }
 .ghana-content h2, .closing-inner h2 { margin: 0; color: #f5f2ee; font-family: "Manrope", sans-serif; font-size: clamp(38px, 4.3vw, 54px); line-height: 1.01; font-weight: 800; letter-spacing: -.07em; }
@@ -325,10 +329,14 @@ img { display: block; max-width: 100%; }
   .product-section { padding-block: 78px 82px; grid-template-columns: 1fr; gap: 34px; }
   .product-copy h2 { margin-top: 25px; }
   .product-copy > p { max-width: 410px; font-size: 11px; }
-  .product-detail-frame { display: none; }
   .mockup-panel { padding: 8px; }
   .mockup-topline, .mockup-footer { font-size: 7px; }
-  .mockup-image { margin-block: 9px; }
+  .screen-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; margin-block: 9px; }
+  .screen-card { padding: 6px; }
+  .screen-art { min-height: 210px; }
+  .screen-art img { height: 198px; }
+  .screen-card figcaption { min-height: 34px; gap: 5px; font-size: 8px; }
+  .screen-disclaimer { font-size: 8px; }
   .ghana-section { min-height: 390px; background-position: center, 65% center; }
   .ghana-inner { min-height: 390px; padding-block: 35px; }
   .ghana-content { margin: 29px 0 0 4px; }

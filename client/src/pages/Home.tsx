@@ -19,11 +19,17 @@ import {
 } from "lucide-react";
 
 // Style reminder: Quiet Control — Swiss editorial hierarchy, near-black surfaces, exact rules, and restrained CallGuard red.
-const heroImage = "https://d2xsxph8kpxj0f.cloudfront.net/310519663986606725/cuszzhDrxg8YzfaZZW7Hhk/callguard-hero-anchor-AY2x4jVnYbefPbYQtjJLXD.webp";
-const evidenceImage = "https://d2xsxph8kpxj0f.cloudfront.net/310519663986606725/cuszzhDrxg8YzfaZZW7Hhk/callguard-evidence-detail-2B6QVot8zFJjEehzpjebhc.webp";
-const shieldTexture = "https://d2xsxph8kpxj0f.cloudfront.net/310519663986606725/cuszzhDrxg8YzfaZZW7Hhk/callguard-shield-texture-QizqTFhNGoeWWLXjtT4v2m.webp";
-const logoImage = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663986606725/ksydsCrXoWPmQOVu.webp";
-const mockupImage = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663986606725/PapGFHvniMbnRGNS.webp";
+const assetBase = import.meta.env.BASE_URL;
+const heroImage = `${assetBase}assets/callguard-logo.webp`;
+const logoImage = heroImage;
+const appScreens = [
+  { label: "Secure sign-in · concept", src: `${assetBase}assets/screens/auth.webp`, alt: "Secure sign-in panel from the supplied Call Guard design mockup." },
+  { label: "Home dashboard", src: `${assetBase}assets/screens/home-dashboard.webp`, alt: "Home dashboard panel from the supplied Call Guard design mockup." },
+  { label: "Fake Call Shield", src: `${assetBase}assets/screens/fake-call-shield.webp`, alt: "Fake Call Shield setup panel from the supplied Call Guard design mockup." },
+  { label: "Incoming-call view", src: `${assetBase}assets/screens/incoming-call.webp`, alt: "Incoming-call style screen from the supplied Call Guard design mockup." },
+  { label: "Intruder detection · concept", src: `${assetBase}assets/screens/intruder-detection-concept.webp`, alt: "Early concept artwork; camera and location features shown are not active in this build." },
+  { label: "Evidence vault · concept", src: `${assetBase}assets/screens/evidence-vault-concept.webp`, alt: "Early evidence-vault concept artwork; media and location capture shown are not active in this build." },
+];
 
 type InstallPromptEvent = Event & {
   prompt: () => Promise<void>;
@@ -101,7 +107,7 @@ export default function Home() {
           <div className="hero-visual">
             <div className="visual-index">01 / PERSONAL SECURITY</div>
             <div className="hero-image-frame">
-              <img src={heroImage} alt="CallGuard security app on a phone at night in Accra" fetchPriority="high" />
+              <img src={heroImage} alt="Call Guard red shield and phone logo" fetchPriority="high" />
               <div className="hero-image-caption"><span className="live-mark"><span /></span> MADE FOR EVERYDAY LIFE <span className="caption-divider">/</span> GHANA</div>
             </div>
             <div className="visual-coordinate">05°36′N&nbsp; 00°11′W</div>
@@ -134,9 +140,9 @@ export default function Home() {
             <div className="feature-grid">
               <article className="feature-card feature-call"><span className="feature-label">01 / EXIT OPTION</span><div className="feature-glyph red-glyph"><PhoneCall size={21} /></div><h3>Fake Call Shield</h3><p>Choose a contact and a delay. Your simulated call appears in the app when the timer ends.</p><span className="feature-status"><span className="status-light" /> READY TO SET UP</span></article>
               <article className="feature-card feature-intruder"><span className="feature-label">02 / DEVICE ACTIVITY</span><div className="feature-glyph"><ShieldCheck size={21} /></div><h3>Intruder Detection</h3><p>Explore the security-event flow and keep sample activity in your local vault.</p><span className="feature-status"><span className="status-light" /> CONTROLLED DEMO</span></article>
-              <article className="feature-card feature-vault"><span className="feature-label">03 / LOCAL RECORD</span><div className="feature-glyph"><LockKeyhole size={21} /></div><h3>Evidence Vault</h3><p>A single place to review saved items. Cloud backup is a separate setup step.</p><span className="feature-status"><span className="status-light" /> ON-DEVICE FIRST</span></article>
+              <article className="feature-card feature-vault"><span className="feature-label">03 / LOCAL RECORD</span><div className="feature-glyph"><LockKeyhole size={21} /></div><h3>Evidence Vault</h3><p>Review local records. This build does not capture photos or location or sync to cloud storage.</p><span className="feature-status"><span className="status-light" /> ON-DEVICE FIRST</span></article>
             </div>
-            <p className="feature-disclosure"><Shield size={13} /> Camera, location, cloud sync, and payment services require explicit permissions and separate setup.</p>
+            <p className="feature-disclosure"><Shield size={13} /> Camera and location capture are not active in this build. Owner email and checkout require separate setup.</p>
           </div>
         </section>
 
@@ -144,18 +150,25 @@ export default function Home() {
           <div className="product-copy">
             <div className="section-marker"><span>04</span><span className="marker-line" /> THE APP</div>
             <h2>Every tool.<br />One clear view.</h2>
-            <p>Move from the home dashboard to a simulated call, security event, or saved evidence without losing your place.</p>
+            <p>Explore the supplied screen concepts for the home dashboard, simulated call flow, and local security controls.</p>
             <a className="text-link" href="#plans">See the plans <ArrowRight size={15} /></a>
-            <div className="product-detail-frame"><img src={evidenceImage} alt="CallGuard evidence vault concept on a smartphone" loading="lazy" /></div>
           </div>
           <div className="mockup-panel">
-            <div className="mockup-topline"><span>PRODUCT PREVIEW</span><span>V5.0 / DARK MODE</span></div>
-            <img className="mockup-image" src={mockupImage} alt="CallGuard v5 Enterprise screen mockup, including secure login, home dashboard, fake call shield, incoming call, intrusion detection, and evidence vault" loading="lazy" />
-            <div className="mockup-footer"><span>DESIGNED FOR IPHONE</span><span>FIG. 01</span></div>
+            <div className="mockup-topline"><span>SUPPLIED SCREEN CONCEPTS</span><span>CALL GUARD / IOS</span></div>
+            <div className="screen-grid">
+              {appScreens.map((screen, index) => (
+                <figure className="screen-card" key={screen.label}>
+                  <div className="screen-art"><img src={screen.src} alt={screen.alt} loading="lazy" decoding="async" /></div>
+                  <figcaption><span>0{index + 1}</span>{screen.label}</figcaption>
+                </figure>
+              ))}
+            </div>
+            <p className="screen-disclaimer">Concept artwork from the original supplied mockup; it is not a capture of the current app. Camera/GPS capture and remote-lock features shown in concept panels are not active.</p>
+            <div className="mockup-footer"><span>DESIGN DIRECTION · NOT LIVE SCREENSHOTS</span><span>6 PANELS</span></div>
           </div>
         </section>
 
-        <section className="ghana-section" style={{ backgroundImage: `linear-gradient(90deg, rgba(10,10,10,.97) 0%, rgba(10,10,10,.76) 58%, rgba(10,10,10,.55) 100%), url(${shieldTexture})` }}>
+        <section className="ghana-section">
           <div className="page-wrap ghana-inner">
             <div className="section-marker"><span>05</span><span className="marker-line" /> MADE FOR GHANA</div>
             <div className="ghana-content"><h2>Made for here.<br /><em>Ready wherever.</em></h2><p>Built for the way people move through Accra and beyond. CallGuard puts practical phone-safety tools one tap away—even when your connection drops.</p><Button variant="ghost" className="button-primary" onClick={handleInstall}>Add to Home Screen <ArrowRight size={17} /></Button><div className="ghana-proof"><MapPin size={15} /><span>Trusted by 1,200+ in Accra</span></div></div>
@@ -167,8 +180,8 @@ export default function Home() {
           <div className="section-marker"><span>06</span><span className="marker-line" /> PLANS & PRICING</div>
           <div className="pricing-header"><div><h2>Simple plans.<br /><span>Clear value.</span></h2></div><p>Choose your level of cover. Pay with MTN MoMo when checkout is available.</p></div>
           <div className="pricing-grid">
-            <article className="price-card"><div className="price-top"><span className="plan-kicker">THE EVERYDAY PLAN</span><span className="plan-code">01</span></div><h3>Defender</h3><p className="price">GH₵45<span>/mo</span></p><div className="price-divider" /><ul><li><Check size={14} /> Unlimited fake calls</li><li><Check size={14} /> Intruder photo + GPS</li><li><Check size={14} /> Evidence Vault</li></ul><Button variant="outline" className="button-outline" onClick={() => setPaymentNoticeOpen(true)}>Pay with MTN MoMo <ArrowRight size={16} /></Button></article>
-            <article className="price-card price-card-pro"><div className="popular-tag"><span className="signal-dot" /> MOST POPULAR</div><div className="price-top"><span className="plan-kicker">THE FULL COVER</span><span className="plan-code">02</span></div><h3>Pro</h3><p className="price">GH₵100<span>/mo</span></p><div className="price-divider" /><ul><li><Check size={14} /> Everything in Defender</li><li><Check size={14} /> Cloud backup</li><li><Check size={14} /> Email alerts</li><li><Check size={14} /> 90-day history & PDF export</li></ul><Button variant="ghost" className="button-primary price-button" onClick={() => setPaymentNoticeOpen(true)}>Pay with MTN MoMo <ArrowRight size={16} /></Button></article>
+            <article className="price-card"><div className="price-top"><span className="plan-kicker">THE EVERYDAY PLAN</span><span className="plan-code">01</span></div><h3>Defender</h3><p className="price">GH₵45<span>/mo</span></p><div className="price-divider" /><ul><li><Check size={14} /> Simulated call experience</li><li><Check size={14} /> Guard Mode with owner PIN</li><li><Check size={14} /> Motion and sound controls</li></ul><Button variant="outline" className="button-outline" onClick={() => setPaymentNoticeOpen(true)}>Pay with MTN MoMo <ArrowRight size={16} /></Button></article>
+            <article className="price-card price-card-pro"><div className="popular-tag"><span className="signal-dot" /> MOST POPULAR</div><div className="price-top"><span className="plan-kicker">THE FULL COVER</span><span className="plan-code">02</span></div><h3>Pro</h3><p className="price">GH₵100<span>/mo</span></p><div className="price-divider" /><ul><li><Check size={14} /> Everything in Defender</li><li><Check size={14} /> Owner email alerts (setup required)</li><li><Check size={14} /> Additional features as released</li></ul><Button variant="ghost" className="button-primary price-button" onClick={() => setPaymentNoticeOpen(true)}>Pay with MTN MoMo <ArrowRight size={16} /></Button></article>
           </div>
           <p className="payment-note"><LockKeyhole size={13} /> Mobile Money checkout is not connected yet. Contact <a href="mailto:callguardhq@gmail.com">callguardhq@gmail.com</a> for setup and availability.</p>
         </section>

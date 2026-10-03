@@ -1,12 +1,12 @@
 # CallGuard Ghana — Landing Page
 
-A responsive, installable landing page for CallGuard, built for Ghana. The public site presents the supplied product mockup and logo, the requested home-screen install message, feature overview, Defender and Pro pricing, and contact details.
+A responsive, installable landing page for Call Guard in Ghana. It uses the supplied logo and six-screen design mockup. Individual panels are crops from that source; intrusion/evidence panels are clearly labeled concepts, not screenshots of the current iOS build. The site includes the requested home-screen install message, pricing, and contact details.
 
 > This repository contains the **public marketing site only**. Native iOS source, signing configuration, and backend credentials are maintained separately in the private `callguard-app` repository.
 
 ## Public site
 
-GitHub Pages is configured to publish from the GitHub Actions workflow in `.github/workflows/deploy-pages.yml`. The expected site URL is <https://callguardhq.github.io/Callguardhq/> once the first deployment succeeds and Pages is enabled for this repository.
+GitHub Pages publishes from the GitHub Actions workflow in `.github/workflows/deploy-pages.yml` on pushes to `main`. The canonical site URL is <https://callguardhq.github.io/Callguardhq/>; the latest workflow run must complete successfully for changes to appear there.
 
 ## Local preview
 
